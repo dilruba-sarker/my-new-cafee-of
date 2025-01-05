@@ -1,11 +1,12 @@
 
 import { IoBookmarks } from "react-icons/io5";
-const Blog = ({blog,handleBookmark , handleReading}) => {
+const Blog = ({blog,handleBookmark ,bookmarks, handleReading, handleShowSelected}) => {
     
 
     const {id,cover,title,author_img,author,posted_date,reading_time,hashtags}=blog
     return (
         <div className=" ">
+            <button onClick={()=>{handleShowSelected(blog)}}>Selected: {bookmarks.length}/6 </button>
             <p className="space-y-10"><img src={cover} alt="" /></p>
             <div className="flex justify-between">
                 <div className="flex justify-between">
