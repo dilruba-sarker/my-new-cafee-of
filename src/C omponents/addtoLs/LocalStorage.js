@@ -19,22 +19,18 @@ const addToLS=id=>{
     saveData(item)
 
 }
-export{addToLS,getStoredDate}
-// const getStoredDate = () => {
-//     const storedData = localStorage.getItem("item");
-//     return storedData ? JSON.parse(storedData) : [];
-// };
 
-// const saveData = (items) => {
-//     localStorage.setItem("item", JSON.stringify(items));
-// };
-
-// const addToLS = (id) => {
-//     const storedItems = getStoredDate();
-//     if (!storedItems.includes(id)) {
-//         storedItems.push(id);
-//         saveData(storedItems);
+const removeFLSto=(id)=>{
+    const items = getStoredDate()
+    const remains=items.filter(idx=>idx !== id)
+    saveData(remains)
+}
+// const removeFromLs=(id)=>{
+//     const item=getStoredItem()
+//     const remaining=item.filter(idx=>idx !==id)
+//     saveToLocalStorage(remaining)
 //     }
-// };
+    
 
-// export { addToLS, getStoredDate };
+export{addToLS,getStoredDate,removeFLSto}
+

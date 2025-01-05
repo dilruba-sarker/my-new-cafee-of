@@ -4,7 +4,7 @@ import './App.css'
 import Blogs from './C omponents/Blogs/Blogs'
 import Bookmarks from './C omponents/Bookmarks/Bookmarks'
 import Header from './C omponents/Header/Header'
-import { addToLS, getStoredDate } from './C omponents/addtoLs/LocalStorage'
+import { addToLS, getStoredDate, removeFLSto } from './C omponents/addtoLs/LocalStorage'
 
 function App() {
  
@@ -51,6 +51,12 @@ const handleBookmarks=(blog)=>{
 addToLS(blog.id)
 
 }
+const handleRemoveLS=(id)=>{
+  removeFLSto(id)
+  const remaings =bookmarks.filter(bookmark=>bookmark.id !== id)
+  setBookmarks(remaings)
+
+}
 
   return (
     <>
@@ -60,6 +66,7 @@ addToLS(blog.id)
       handleReading={handleReading}
       ></Blogs>
       <Bookmarks bookmarks={bookmarks}
+      handleRemoveLS={handleRemoveLS}
       handleRemoveUi={handleRemoveUi}
       handleBookmarks={handleBookmarks}
       readingTime={readingTime}
